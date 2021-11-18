@@ -29,10 +29,10 @@ app.use("/roupas", roupasRouter);
 const suplementosRouter = require("./routers/suplementos.routes");
 app.use("/suplementos", suplementosRouter);
 
-// app.listen(process.env.PORT, () => {
-//   console.info(`App rodando em http://localhost:${process.env.PORT}`);
-// }); usado para rodar com banco de dados
+app.listen(process.env.PORT, () => {
+  console.info(`App rodando em http://localhost:${process.env.PORT}`);
+}); 
 
-app.listen(port, () => {
-  console.info(`App rodando em http://localhost:${port}`);
-});
+// app.listen(port, () => {
+//   console.info(`App rodando em http://localhost:${port}`);
+// });
