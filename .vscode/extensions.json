@@ -1,0 +1,19 @@
+{
+    "recommendations": [
+        "mrdziuban.good-enough-scala-lsp",
+        "esbenp.prettier-vscode",
+        "coenraads.bracket-pair-colorizer",
+        "coenraads.bracket-pair-colorizer-2",
+        "thekalinga.bootstrap4-vscode",
+        "pranaygp.vscode-css-peek",
+        "shyykoserhiy.git-autoconfig",
+        "christian-kohler.path-intellisense",
+        "tabnine.tabnine-vscode",
+        "rangav.vscode-thunder-client",
+        "visualstudioexptteam.vscodeintellicode",
+        "pkief.material-icon-theme",
+        "shan.code-settings-sync",
+        "ccimage.jsonviewer",
+        "ritwickdey.liveserver"
+    ]
+}
