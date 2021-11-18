@@ -1,23 +1,23 @@
 const express = require("express");
 const router = express.Router();
 
-const paisesController = require("./../controller/paises.controller");
+const acessoriosController = require("./../controller/acessorios.controller");
 
 router.get("/", (req, res) => {
   res.status(200).json({
     message:
-      "Rota país ok. Escolha entre as opções: ( /listall) ( /listname ) ( add ) ( update ) ( delete )",
+      "Rota Acessorios ok. Escolha entre as seguintes opções: ( /listall) ( /listname ) ( add ) ( update ) ( delete )",
   });
 });
 
-router.get("/listall", paisesController.getAll);
+router.get("/listall", acessoriosController.getAll);
 
-router.get("/listname/:id", paisesController.getName);
+router.get("/listname/:id", acessoriosController.getName);
 
-router.post("/add", paisesController.postAdd);
+router.post("/add", acessoriosController.postAdd);
 
-router.put("/update/:id", paisesController.putUpdate);
+router.put("/update/:id", acessoriosController.putUpdate);
 
-router.delete("/delete/:id", paisesController.deleteDell);
+router.delete("/delete/:id", acessoriosController.deleteDel);
 
 module.exports = router;
