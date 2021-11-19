@@ -1,6 +1,6 @@
 const express = require("express"); //import do express
 const router = express.Router(); //define app como express
-const RoupaController = require('./../controller/roupas.controller'); // importacao do controller
+const RoupaController = require('../controller/roupas.controller'); // importacao do controller
 
 router.get('/', (req,res) => {
     res.status(200).json({message:"Rota Roupas ok"});
