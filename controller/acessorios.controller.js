@@ -27,12 +27,12 @@ const acessorios = require("./../model/acessorios");
 //   }
 // }
 
-// function validaId(res, id) {
-//   if (id.length !== 24) {
-//     res.status(400).json({ message: "id precisa ter 24 caracteres" });
-//     return true;
-//   }
-// }
+function validaId(res, id) {
+  if (id.length !== 24) {
+    res.status(400).json({ message: "id precisa ter 24 caracteres" });
+    return true;
+  }
+}
 
 exports.getAll = async (req, res) => {
   await acessorios
@@ -46,12 +46,12 @@ exports.getAll = async (req, res) => {
     });
 };
 
-exports.getDescri = async (req, res) => {
-//   if (validaId(res, req.params.id)) return;
+exports.getlistid = async (req, res) => {
+  if (validaId(res, req.params.id)) return;
   await acessorios
     .findById(req.params.id)
     .then((acessorios) => {
-      console.log(acessorios.descri);
+      console.log(acessorios.produto);
 
       if (acessorios == null) {
         res.status(404).json({ message: "Não localizado" });
@@ -66,7 +66,7 @@ exports.getDescri = async (req, res) => {
 };
 
 exports.postAdd = async (req, res) => {
-//   if (validarAddUpdt(res, req.body)) return;
+  // if (validarAddUpdt(res, req.body)) return;
 
   await acessorios
     .create(req.body)
@@ -80,7 +80,7 @@ exports.postAdd = async (req, res) => {
 };
 
 exports.putUpdate = async (req, res) => {
-//   if (validaId(res, req.params.id)) return;
+  if (validaId(res, req.params.id)) return;
 //   if (validarAddUpdt(res, req.body)) return;
   await acessorios
     .findByIdAndUpdate(req.params.id, req.body)
