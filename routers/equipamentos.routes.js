@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const equipamentosController = require("./../controller/equipamentos.controller");
+const equipamentosController = require("../controller/equipamentos.controller");
 
 router.get("/", (req, res) => {
   res.status(200).json({
