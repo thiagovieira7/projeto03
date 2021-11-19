@@ -6,13 +6,13 @@ const equipamentosController = require("../controller/equipamentos.controller");
 router.get("/", (req, res) => {
   res.status(200).json({
     message:
-      "Rota Acessorios ok. Escolha entre as seguintes opções: ( /listall) ( /listname ) ( add ) ( update ) ( delete )",
+      "Rota Acessorios ok. Escolha entre as seguintes opções: ( /listall) ( /listid ) ( add ) ( update ) ( delete )",
   });
 });
 
 router.get("/listall", equipamentosController.getAll);
 
-router.get("/listname/:id", equipamentosController.getName);
+router.get("/listid/:id", equipamentosController.getlistid);
 
 router.post("/add", equipamentosController.postAdd);
 

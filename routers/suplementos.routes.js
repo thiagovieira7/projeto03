@@ -6,13 +6,13 @@ const suplementosController = require("./../controller/suplementos.controller");
 router.get("/", (req, res) => {
   res.status(200).json({
     message:
-      "Rota Acessorios ok. Escolha entre as seguintes opções: ( /listall) ( /listname ) ( add ) ( update ) ( delete )",
+      "Rota Acessorios ok. Escolha entre as seguintes opções: ( /listall) ( /listid ) ( add ) ( update ) ( delete )",
   });
 });
 
 router.get("/listall", suplementosController.getAll);
 
-router.get("/listname/:id", suplementosController.getName);
+router.get("/listid/:id", suplementosController.getlistid);
 
 router.post("/add", suplementosController.postAdd);
 
