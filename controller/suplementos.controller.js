@@ -32,7 +32,7 @@ const suplementos = require("./../model/suplementos");
 //     res.status(400).json({ message: "id precisa ter 24 caracteres" });
 //     return true;
 //   }
-}
+// }
 
 exports.getAll = async (req, res) => {
   await suplementos
