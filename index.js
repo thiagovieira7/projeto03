@@ -21,13 +21,13 @@ app.get('/', (req, res) => {
 const acessoriosRouter = require("./routers/acessorios.routes");
 app.use("/acessorios", acessoriosRouter);
 
-const CalcadosRouter = require("./routers/calcados.routers");
+const CalcadosRouter = require("./routers/calcados.routes");
 app.use("/calcados", CalcadosRouter);
 
 const equipamentosRouter = require("./routers/equipamentos.routes");
 app.use("/equipamentos", equipamentosRouter);
 
-const RoupasRouter = require("./routers/roupas.routers");
+const RoupasRouter = require("./routers/roupas.routes");
 app.use("/roupas", RoupasRouter);
 
 const suplementosRouter = require("./routers/suplementos.routes");
