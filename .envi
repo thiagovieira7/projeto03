@@ -1,5 +1,0 @@
-DB_BASE = ""
-DB_HOST = ""
-DB_USER = ""
-DB_PASS = ""
-PORT = 3000
