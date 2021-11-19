@@ -27,11 +27,11 @@ const suplementos = require("./../model/suplementos");
 //   }
 // }
 
-// function validaId(res, id) {
-//   if (id.length !== 24) {
-//     res.status(400).json({ message: "id precisa ter 24 caracteres" });
-//     return true;
-//   }
+function validaId(res, id) {
+  if (id.length !== 24) {
+    res.status(400).json({ message: "id precisa ter 24 caracteres" });
+    return true;
+  }
 }
 
 exports.getAll = async (req, res) => {
@@ -46,12 +46,12 @@ exports.getAll = async (req, res) => {
     });
 };
 
-exports.getDescri = async (req, res) => {
-//   if (validaId(res, req.params.id)) return;
+exports.getlistid = async (req, res) => {
+  if (validaId(res, req.params.id)) return;
   await suplementos
     .findById(req.params.id)
     .then((suplementos) => {
-      console.log(suplementos.descri);
+      console.log(suplementos.produto);
 
       if (suplementos == null) {
         res.status(404).json({ message: "Não localizado" });
@@ -80,7 +80,7 @@ exports.postAdd = async (req, res) => {
 };
 
 exports.putUpdate = async (req, res) => {
-//   if (validaId(res, req.params.id)) return;
+  if (validaId(res, req.params.id)) return;
 //   if (validarAddUpdt(res, req.body)) return;
   await suplementos
     .findByIdAndUpdate(req.params.id, req.body)

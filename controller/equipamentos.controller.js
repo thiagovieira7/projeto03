@@ -27,11 +27,11 @@ const equipamentos = require("./../model/equipamentos");
 //   }
 // }
 
-// function validaId(res, id) {
-//   if (id.length !== 24) {
-//     res.status(400).json({ message: "id precisa ter 24 caracteres" });
-//     return true;
-//   }
+function validaId(res, id) {
+  if (id.length !== 24) {
+    res.status(400).json({ message: "id precisa ter 24 caracteres" });
+    return true;
+  }
 }
 
 exports.getAll = async (req, res) => {
@@ -46,12 +46,12 @@ exports.getAll = async (req, res) => {
     });
 };
 
-exports.getDescri = async (req, res) => {
-//   if (validaId(res, req.params.id)) return;
+exports.getlistid = async (req, res) => {
+  if (validaId(res, req.params.id)) return;
   await equipamentos
     .findById(req.params.id)
     .then((equipamentos) => {
-      console.log(equipamentos.descri);
+      console.log(equipamentos.produto);
 
       if (equipamentos == null) {
         res.status(404).json({ message: "Não localizado" });
@@ -80,7 +80,7 @@ exports.postAdd = async (req, res) => {
 };
 
 exports.putUpdate = async (req, res) => {
-//   if (validaId(res, req.params.id)) return;
+  if (validaId(res, req.params.id)) return;
 //   if (validarAddUpdt(res, req.body)) return;
   await equipamentos
     .findByIdAndUpdate(req.params.id, req.body)
