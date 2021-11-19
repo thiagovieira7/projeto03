@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
 
 router.get("/listall", acessoriosController.getAll);
 
-router.get("/listname/:id", acessoriosController.getName);
+router.get("/listname/:id", acessoriosController.getDescri);
 
 router.post("/add", acessoriosController.postAdd);
 
