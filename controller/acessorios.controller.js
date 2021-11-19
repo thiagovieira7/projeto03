@@ -1,31 +1,31 @@
 const acessorios = require("./../model/acessorios");
 
-function validarAddUpdt(res, reqisicao) {
-  if (!reqisicao.nome) {
-    res.status(400).send({
-      message: "NOME inválido. Verifique as informações da requisição no body.",
-    });
-    return true;
-  } else if (!reqisicao.qtdBairros) {
-    res.status(400).send({
-      message:
-        "QTDBAIRROS inválida. Verifique as informações da requisição no body.",
-    });
-    return true;
-  } else if (!reqisicao.populacao) {
-    res.status(400).send({
-      message:
-        "POPULAÇÃO inválida. Verifique as informações da requisição no body.",
-    });
-    return true;
-  } else if (!reqisicao.dtAniversario) {
-    res.status(400).send({
-      message:
-        "DTANIVERSARIO inválida. Verifique as informações da requisição no body.",
-    });
-    return true;
-  }
-}
+// function validarAddUpdt(res, reqisicao) {
+//   if (!reqisicao.produto) {
+//     res.status(400).send({
+//       message: "NOME inválido. Verifique as informações da requisição no body.",
+//     });
+//     return true;
+//   } else if (!reqisicao.marca) {
+//     res.status(400).send({
+//       message:
+//         "QTDBAIRROS inválida. Verifique as informações da requisição no body.",
+//     });
+//     return true;
+//   } else if (!reqisicao.caracteristicas) {
+//     res.status(400).send({
+//       message:
+//         "POPULAÇÃO inválida. Verifique as informações da requisição no body.",
+//     });
+//     return true;
+//   } else if (!reqisicao.peso) {
+//     res.status(400).send({
+//       message:
+//         "DTANIVERSARIO inválida. Verifique as informações da requisição no body.",
+//     });
+//     return true;
+//   }
+// }
 
 function validaId(res, id) {
   if (id.length !== 24) {
