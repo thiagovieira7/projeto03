@@ -27,12 +27,21 @@ const acessorios = require("./../model/acessorios");
 //   }
 // }
 
+<<<<<<< HEAD
+// function validaId(res, id) {
+//   if (id.length !== 24) {
+//     res.status(400).json({ message: "id precisa ter 24 caracteres" });
+//     return true;
+// //   }
+// }
+=======
 function validaId(res, id) {
   if (id.length !== 24) {
     res.status(400).json({ message: "id precisa ter 24 caracteres" });
     return true;
   }
 }
+>>>>>>> thiagoDevelop
 
 exports.getAll = async (req, res) => {
   await acessorios
