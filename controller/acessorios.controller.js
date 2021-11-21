@@ -1,31 +1,89 @@
 const acessorios = require("./../model/acessorios");
 
-// function validarAddUpdt(res, reqisicao) {
-//   if (!reqisicao.nome) {
-//     res.status(400).send({
-//       message: "NOME inválido. Verifique as informações da requisição no body.",
-//     });
-//     return true;
-//   } else if (!reqisicao.qtdBairros) {
-//     res.status(400).send({
-//       message:
-//         "QTDBAIRROS inválida. Verifique as informações da requisição no body.",
-//     });
-//     return true;
-//   } else if (!reqisicao.populacao) {
-//     res.status(400).send({
-//       message:
-//         "POPULAÇÃO inválida. Verifique as informações da requisição no body.",
-//     });
-//     return true;
-//   } else if (!reqisicao.dtAniversario) {
-//     res.status(400).send({
-//       message:
-//         "DTANIVERSARIO inválida. Verifique as informações da requisição no body.",
-//     });
-//     return true;
-//   }
-// }
+produto
+marca
+caracteristicas
+peso
+volume
+valor
+
+
+function validaEntrada(dados) {
+  const listaErros = [];
+  var produto = {};
+  var marca = {};
+  var caracteristicas = {};
+  var peso = {};
+  var valor = {};
+  var produto = {
+    vazio: false,
+    tamanho: false,
+    num: true
+  };
+
+  if (!dados.produto) {
+    produto.vazio = true;
+  } else if (dados.produto.length > 70) {
+    produto.tamanho = true;
+  }
+
+  if (!dados.marca) {
+    marca.vazio = true;
+  } else if (dados.marca.lenght > 70) {
+    marca.tamanho = true
+  }
+
+  if (!dados.caracteristicas) {
+  caracteristicas.vazio = true;
+  } else if (dados.caracteristicas.lenght > 1000) {
+  caracteristicas.tamanho = true
+  }
+  
+  if (!dados.peso) {
+  peso.vazio = true;
+  } else if (dados.peso.lenght > 6) {
+  peso.tamanho = true
+  }  else if (isNaN(dados.peso)) {
+    peso.num = false;
+  
+  if (!dados.valor) {
+  valor.vazio = true;
+  } else if (dados.valor.lenght > 7) {
+  valor.tamanho = true
+  } else if (isNaN(dados.valor)) {
+    valor.num = false;
+  }    
+
+}
+
+
+
+function validarAddUpdt(res, reqisicao) {
+  if (!reqisicao.nome) {
+    res.status(400).send({
+      message: "NOME inválido. Verifique as informações da requisição no body.",
+    });
+    return true;
+  } else if (!reqisicao.qtdBairros) {
+    res.status(400).send({
+      message:
+        "QTDBAIRROS inválida. Verifique as informações da requisição no body.",
+    });
+    return true;
+  } else if (!reqisicao.populacao) {
+    res.status(400).send({
+      message:
+        "POPULAÇÃO inválida. Verifique as informações da requisição no body.",
+    });
+    return true;
+  } else if (!reqisicao.dtAniversario) {
+    res.status(400).send({
+      message:
+        "DTANIVERSARIO inválida. Verifique as informações da requisição no body.",
+    });
+    return true;
+  }
+}
 
 function validaId(res, id) {
   if (id.length !== 24) {
@@ -66,7 +124,7 @@ exports.getlistid = async (req, res) => {
 };
 
 exports.postAdd = async (req, res) => {
-  // if (validarAddUpdt(res, req.body)) return;
+  if (validarAddUpdt(res, req.body)) return;
 
   await acessorios
     .create(req.body)
