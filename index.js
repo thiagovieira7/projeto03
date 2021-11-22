@@ -41,6 +41,3 @@ app.listen(process.env.PORT, () => {
 // app.listen(port, () => {
 //   console.info(`App rodando em http://localhost:${port}`);
 // });
-
-
-
