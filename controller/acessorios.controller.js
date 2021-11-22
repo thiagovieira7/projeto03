@@ -1,13 +1,5 @@
 const acessorios = require("./../model/acessorios");
 
-produto
-marca
-caracteristicas
-peso
-volume
-valor
-
-
 function validaEntrada(dados) {
   const listaErros = [];
   var produto = {};
@@ -40,11 +32,13 @@ function validaEntrada(dados) {
   }
   
   if (!dados.peso) {
-  peso.vazio = true;
+    peso.vazio = true;
   } else if (dados.peso.lenght > 6) {
-  peso.tamanho = true
-  }  else if (isNaN(dados.peso)) {
+    peso.tamanho = true
+  } else if (isNaN(dados.peso)) {
     peso.num = false;
+  
+  }
   
   if (!dados.valor) {
   valor.vazio = true;
@@ -52,38 +46,46 @@ function validaEntrada(dados) {
   valor.tamanho = true
   } else if (isNaN(dados.valor)) {
     valor.num = false;
-  }    
-
-}
-
-
-
-function validarAddUpdt(res, reqisicao) {
-  if (!reqisicao.nome) {
-    res.status(400).send({
-      message: "NOME inválido. Verifique as informações da requisição no body.",
-    });
-    return true;
-  } else if (!reqisicao.qtdBairros) {
-    res.status(400).send({
-      message:
-        "QTDBAIRROS inválida. Verifique as informações da requisição no body.",
-    });
-    return true;
-  } else if (!reqisicao.populacao) {
-    res.status(400).send({
-      message:
-        "POPULAÇÃO inválida. Verifique as informações da requisição no body.",
-    });
-    return true;
-  } else if (!reqisicao.dtAniversario) {
-    res.status(400).send({
-      message:
-        "DTANIVERSARIO inválida. Verifique as informações da requisição no body.",
-    });
-    return true;
   }
+  
+  listaErros.push = (produto);
+  listaErros.push = (marca);
+  listaErros.push = (caracteristicas);
+  listaErros.push = (peso);
+  listaErros.push = (valor);
+
+  return listaErros;
+
 }
+
+
+
+// function validarAddUpdt(res, reqisicao) {
+//   if (!reqisicao.nome) {
+//     res.status(400).send({
+//       message: "NOME inválido. Verifique as informações da requisição no body.",
+//     });
+//     return true;
+//   } else if (!reqisicao.qtdBairros) {
+//     res.status(400).send({
+//       message:
+//         "QTDBAIRROS inválida. Verifique as informações da requisição no body.",
+//     });
+//     return true;
+//   } else if (!reqisicao.populacao) {
+//     res.status(400).send({
+//       message:
+//         "POPULAÇÃO inválida. Verifique as informações da requisição no body.",
+//     });
+//     return true;
+//   } else if (!reqisicao.dtAniversario) {
+//     res.status(400).send({
+//       message:
+//         "DTANIVERSARIO inválida. Verifique as informações da requisição no body.",
+//     });
+//     return true;
+//   }
+// }
 
 function validaId(res, id) {
   if (id.length !== 24) {
@@ -124,7 +126,7 @@ exports.getlistid = async (req, res) => {
 };
 
 exports.postAdd = async (req, res) => {
-  if (validarAddUpdt(res, req.body)) return;
+  if (validaEntrada(req.body)) return;
 
   await acessorios
     .create(req.body)
@@ -139,7 +141,7 @@ exports.postAdd = async (req, res) => {
 
 exports.putUpdate = async (req, res) => {
   if (validaId(res, req.params.id)) return;
-//   if (validarAddUpdt(res, req.body)) return;
+  if (validaEntrada(req.body)) return;
   await acessorios
     .findByIdAndUpdate(req.params.id, req.body)
     .then(() => {
