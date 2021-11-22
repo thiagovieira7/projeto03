@@ -106,7 +106,7 @@ exports.getAll = async (req, res) => {
     });
 };
 
-exports.getlistid = async (req, res) => {
+exports.getListid = async (req, res) => {
   if (validaId(res, req.params.id)) return;
   await acessorios
     .findById(req.params.id)
@@ -129,9 +129,8 @@ exports.postAdd = async (req, res) => {
   if (validaEntrada(req.body)) return;
 
   await acessorios
-    .create(req.body)
-    .then(() => {
-      res.status(200).json({ message: "Acessorio cadastrado com sucesso." });
+    .create(req.body).then(() => {
+      res.status(200).json({ message: "cadasto realizado com sucesso." });
     })
     .catch((err) => {
       res.status(400).json({ message: "Erro ao cadastrar" });
@@ -147,7 +146,7 @@ exports.putUpdate = async (req, res) => {
     .then(() => {
       res
         .status(200)
-        .json({ message: "Informações do acessório alterado com sucesso" });
+        .json({ message: "Informações alterados com sucesso" });
     })
     .catch((err) => {
       res.status(400).json({ message: "Erro ao atualizar" });
