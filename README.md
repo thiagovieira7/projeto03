@@ -2,6 +2,8 @@
 
 ## Rotas: Roupas, Calçados, Suplementos, Equipamentos e Acessórios
 
+##### Integração Frontend + Backend + Mongo Atlas + Heroku
+
 API com rotas e banco de dados distintos, através do VS Code.
 
 **** Existem os seguintes Endpoints por rota:
