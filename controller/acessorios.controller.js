@@ -1,33 +1,5 @@
 const acessorios = require("./../model/acessorios");
 
-<<<<<<< HEAD
-// function validarAddUpdt(res, reqisicao) {
-//   if (!reqisicao.produto) {
-//     res.status(400).send({
-//       message: "NOME inválido. Verifique as informações da requisição no body.",
-//     });
-//     return true;
-//   } else if (!reqisicao.marca) {
-//     res.status(400).send({
-//       message:
-//         "QTDBAIRROS inválida. Verifique as informações da requisição no body.",
-//     });
-//     return true;
-//   } else if (!reqisicao.caracteristicas) {
-//     res.status(400).send({
-//       message:
-//         "POPULAÇÃO inválida. Verifique as informações da requisição no body.",
-//     });
-//     return true;
-//   } else if (!reqisicao.peso) {
-//     res.status(400).send({
-//       message:
-//         "DTANIVERSARIO inválida. Verifique as informações da requisição no body.",
-//     });
-//     return true;
-//   }
-// }
-=======
 function validaEntrada(res, reqisicao) {
   if (!reqisicao.produto) {
     res.status(400).send({
@@ -61,7 +33,6 @@ function validaEntrada(res, reqisicao) {
     return true;
   }
 }
->>>>>>> thiagoDevelop
 
 function validaId(res, id) {
   if (id.length !== 24) {
