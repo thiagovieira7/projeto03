@@ -38,7 +38,13 @@ app.listen(process.env.PORT, () => {
   console.info(`App rodando em http://localhost:${process.env.PORT}`);
 }); 
 
+<<<<<<< HEAD
 
 
 
 
+=======
+// app.listen(port, () => {
+//   console.info(`App rodando em http://localhost:${port}`);
+// });
+>>>>>>> thiagoDevelop

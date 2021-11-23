@@ -1,5 +1,6 @@
 const acessorios = require("./../model/acessorios");
 
+<<<<<<< HEAD
 // function validarAddUpdt(res, reqisicao) {
 //   if (!reqisicao.produto) {
 //     res.status(400).send({
@@ -26,6 +27,41 @@ const acessorios = require("./../model/acessorios");
 //     return true;
 //   }
 // }
+=======
+function validaEntrada(res, reqisicao) {
+  if (!reqisicao.produto) {
+    res.status(400).send({
+      message: "Verifique as informações do nome do PRODUTO na requisição no body",
+    });
+    return true;
+  } else if (!reqisicao.marca) {
+    res.status(400).send({
+      message:
+        "Verifique as informações sobre a MARCA na requisição no body.",
+    });
+    return true;
+  } else if (!reqisicao.caracteristicas) {
+    res.status(400).send({
+      message:
+        "Verifique as informações daS CARACTERISTICAS na requisição no body.",
+    });
+    return true;
+  } else if (!reqisicao.peso) {
+    res.status(400).send({
+      message:
+        "Verifique as informações sobre o PESO na requisição no body..",
+    });
+
+  } else if (!reqisicao.valor) {
+    res.status(400).send({
+      message:
+        "Verifique as informações sobre o VALOR na requisição no body..",
+    });
+
+    return true;
+  }
+}
+>>>>>>> thiagoDevelop
 
 function validaId(res, id) {
   if (id.length !== 24) {
@@ -46,7 +82,7 @@ exports.getAll = async (req, res) => {
     });
 };
 
-exports.getlistid = async (req, res) => {
+exports.getListid = async (req, res) => {
   if (validaId(res, req.params.id)) return;
   await acessorios
     .findById(req.params.id)
@@ -66,12 +102,11 @@ exports.getlistid = async (req, res) => {
 };
 
 exports.postAdd = async (req, res) => {
-  // if (validarAddUpdt(res, req.body)) return;
+  if (validaEntrada(res, req.body)) return;
 
   await acessorios
-    .create(req.body)
-    .then(() => {
-      res.status(200).json({ message: "Acessorio cadastrado com sucesso." });
+    .create(req.body).then(() => {
+      res.status(200).json({ message: "cadasto realizado com sucesso." });
     })
     .catch((err) => {
       res.status(400).json({ message: "Erro ao cadastrar" });
@@ -81,13 +116,13 @@ exports.postAdd = async (req, res) => {
 
 exports.putUpdate = async (req, res) => {
   if (validaId(res, req.params.id)) return;
-//   if (validarAddUpdt(res, req.body)) return;
+  if (validaEntrada(res, req.body)) return;
   await acessorios
     .findByIdAndUpdate(req.params.id, req.body)
     .then(() => {
       res
         .status(200)
-        .json({ message: "Informações do acessório alterado com sucesso" });
+        .json({ message: "Informações alterados com sucesso" });
     })
     .catch((err) => {
       res.status(400).json({ message: "Erro ao atualizar" });
@@ -106,4 +141,4 @@ exports.deleteDel = async (req, res) => {
       console.error(err);
       res.status(400).json({ message: "Erro ao deletar" });
     });
-};
+}
