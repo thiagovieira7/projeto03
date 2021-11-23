@@ -1,88 +1,35 @@
 const acessorios = require("./../model/acessorios");
 
-function validaEntrada(dados) {
-  const listaErros = [];
-  var produto = {};
-  var marca = {};
-  var caracteristicas = {};
-  var peso = {};
-  var valor = {};
-  var produto = {
-    vazio: false,
-    tamanho: false,
-    num: true
-  };
-
-  if (!dados.produto) {
-    produto.vazio = true;
-  } else if (dados.produto.length > 70) {
-    produto.tamanho = true;
-  }
-
-  if (!dados.marca) {
-    marca.vazio = true;
-  } else if (dados.marca.lenght > 70) {
-    marca.tamanho = true
-  }
-
-  if (!dados.caracteristicas) {
-  caracteristicas.vazio = true;
-  } else if (dados.caracteristicas.lenght > 1000) {
-  caracteristicas.tamanho = true
-  }
-  
-  if (!dados.peso) {
-    peso.vazio = true;
-  } else if (dados.peso.lenght > 6) {
-    peso.tamanho = true
-  } else if (isNaN(dados.peso)) {
-    peso.num = false;
-  
-  }
-  
-  if (!dados.valor) {
-  valor.vazio = true;
-  } else if (dados.valor.lenght > 7) {
-  valor.tamanho = true
-  } else if (isNaN(dados.valor)) {
-    valor.num = false;
-  }
-  
-  listaErros.push = (produto);
-  listaErros.push = (marca);
-  listaErros.push = (caracteristicas);
-  listaErros.push = (peso);
-  listaErros.push = (valor);
-
-  return listaErros;
-
-}
-
-
-
-function validarAddUpdt(res, reqisicao) {
-  if (!reqisicao.nome) {
+function validaEntrada(res, reqisicao) {
+  if (!reqisicao.produto) {
     res.status(400).send({
-      message: "NOME inválido. Verifique as informações da requisição no body.",
+      message: "Verifique as informações do nome do PRODUTO na requisição no body",
     });
     return true;
-  } else if (!reqisicao.qtdBairros) {
+  } else if (!reqisicao.marca) {
     res.status(400).send({
       message:
-        "QTDBAIRROS inválida. Verifique as informações da requisição no body.",
+        "Verifique as informações sobre a MARCA na requisição no body.",
     });
     return true;
-  } else if (!reqisicao.populacao) {
+  } else if (!reqisicao.caracteristicas) {
     res.status(400).send({
       message:
-        "POPULAÇÃO inválida. Verifique as informações da requisição no body.",
+        "Verifique as informações daS CARACTERISTICAS na requisição no body.",
     });
     return true;
-  } else if (!reqisicao.dtAniversario) {
+  } else if (!reqisicao.peso) {
     res.status(400).send({
       message:
-        "DTANIVERSARIO inválida. Verifique as informações da requisição no body.",
+        "Verifique as informações sobre o PESO na requisição no body..",
     });
+
+  } else if (!reqisicao.valor) {
+    res.status(400).send({
+      message:
+        "Verifique as informações sobre o VALOR na requisição no body..",
+    });
+
     return true;
   }
 }
@@ -126,7 +73,7 @@ exports.getListid = async (req, res) => {
 };
 
 exports.postAdd = async (req, res) => {
-  // if (validaEntrada(req.body)) return;
+  if (validaEntrada(res, req.body)) return;
 
   await acessorios
     .create(req.body).then(() => {
@@ -140,7 +87,7 @@ exports.postAdd = async (req, res) => {
 
 exports.putUpdate = async (req, res) => {
   if (validaId(res, req.params.id)) return;
-  // if (validaEntrada(req.body)) return;
+  if (validaEntrada(res, req.body)) return;
   await acessorios
     .findByIdAndUpdate(req.params.id, req.body)
     .then(() => {
@@ -165,4 +112,4 @@ exports.deleteDel = async (req, res) => {
       console.error(err);
       res.status(400).json({ message: "Erro ao deletar" });
     });
-};
+}

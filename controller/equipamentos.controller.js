@@ -1,31 +1,38 @@
 const equipamentos = require("./../model/equipamentos");
 
-// function validarAddUpdt(res, reqisicao) {
-//   if (!reqisicao.nome) {
-//     res.status(400).send({
-//       message: "NOME inválido. Verifique as informações da requisição no body.",
-//     });
-//     return true;
-//   } else if (!reqisicao.qtdBairros) {
-//     res.status(400).send({
-//       message:
-//         "QTDBAIRROS inválida. Verifique as informações da requisição no body.",
-//     });
-//     return true;
-//   } else if (!reqisicao.populacao) {
-//     res.status(400).send({
-//       message:
-//         "POPULAÇÃO inválida. Verifique as informações da requisição no body.",
-//     });
-//     return true;
-//   } else if (!reqisicao.dtAniversario) {
-//     res.status(400).send({
-//       message:
-//         "DTANIVERSARIO inválida. Verifique as informações da requisição no body.",
-//     });
-//     return true;
-//   }
-// }
+function validaEntrada(res, reqisicao) {
+  if (!reqisicao.produto) {
+    res.status(400).send({
+      message: "Verifique as informações do nome do PRODUTO na requisição no body",
+    });
+    return true;
+  } else if (!reqisicao.marca) {
+    res.status(400).send({
+      message:
+        "Verifique as informações sobre a MARCA na requisição no body.",
+    });
+    return true;
+  } else if (!reqisicao.caracteristicas) {
+    res.status(400).send({
+      message:
+        "Verifique as informações daS CARACTERISTICAS na requisição no body.",
+    });
+    return true;
+  } else if (!reqisicao.peso) {
+    res.status(400).send({
+      message:
+        "Verifique as informações sobre o PESO na requisição no body..",
+    });
+
+  } else if (!reqisicao.valor) {
+    res.status(400).send({
+      message:
+        "Verifique as informações sobre o VALOR na requisição no body..",
+    });
+
+    return true;
+  }
+}
 
 function validaId(res, id) {
   if (id.length !== 24) {
@@ -66,7 +73,7 @@ exports.getlistid = async (req, res) => {
 };
 
 exports.postAdd = async (req, res) => {
-//   if (validarAddUpdt(res, req.body)) return;
+  if (validaEntrada(res, req.body)) return;
 
   await equipamentos
     .create(req.body)
@@ -81,7 +88,7 @@ exports.postAdd = async (req, res) => {
 
 exports.putUpdate = async (req, res) => {
   if (validaId(res, req.params.id)) return;
-//   if (validarAddUpdt(res, req.body)) return;
+  if (validaEntrada(res, req.body)) return;
   await equipamentos
     .findByIdAndUpdate(req.params.id, req.body)
     .then(() => {
