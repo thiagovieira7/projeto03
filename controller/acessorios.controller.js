@@ -60,32 +60,32 @@ function validaEntrada(dados) {
 
 
 
-// function validarAddUpdt(res, reqisicao) {
-//   if (!reqisicao.nome) {
-//     res.status(400).send({
-//       message: "NOME inválido. Verifique as informações da requisição no body.",
-//     });
-//     return true;
-//   } else if (!reqisicao.qtdBairros) {
-//     res.status(400).send({
-//       message:
-//         "QTDBAIRROS inválida. Verifique as informações da requisição no body.",
-//     });
-//     return true;
-//   } else if (!reqisicao.populacao) {
-//     res.status(400).send({
-//       message:
-//         "POPULAÇÃO inválida. Verifique as informações da requisição no body.",
-//     });
-//     return true;
-//   } else if (!reqisicao.dtAniversario) {
-//     res.status(400).send({
-//       message:
-//         "DTANIVERSARIO inválida. Verifique as informações da requisição no body.",
-//     });
-//     return true;
-//   }
-// }
+function validarAddUpdt(res, reqisicao) {
+  if (!reqisicao.nome) {
+    res.status(400).send({
+      message: "NOME inválido. Verifique as informações da requisição no body.",
+    });
+    return true;
+  } else if (!reqisicao.qtdBairros) {
+    res.status(400).send({
+      message:
+        "QTDBAIRROS inválida. Verifique as informações da requisição no body.",
+    });
+    return true;
+  } else if (!reqisicao.populacao) {
+    res.status(400).send({
+      message:
+        "POPULAÇÃO inválida. Verifique as informações da requisição no body.",
+    });
+    return true;
+  } else if (!reqisicao.dtAniversario) {
+    res.status(400).send({
+      message:
+        "DTANIVERSARIO inválida. Verifique as informações da requisição no body.",
+    });
+    return true;
+  }
+}
 
 function validaId(res, id) {
   if (id.length !== 24) {
@@ -126,7 +126,7 @@ exports.getListid = async (req, res) => {
 };
 
 exports.postAdd = async (req, res) => {
-  if (validaEntrada(req.body)) return;
+  // if (validaEntrada(req.body)) return;
 
   await acessorios
     .create(req.body).then(() => {
@@ -140,7 +140,7 @@ exports.postAdd = async (req, res) => {
 
 exports.putUpdate = async (req, res) => {
   if (validaId(res, req.params.id)) return;
-  if (validaEntrada(req.body)) return;
+  // if (validaEntrada(req.body)) return;
   await acessorios
     .findByIdAndUpdate(req.params.id, req.body)
     .then(() => {
