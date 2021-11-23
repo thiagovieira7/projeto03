@@ -14,7 +14,7 @@ API com rotas e banco de dados distintos, através do VS Code.
 [PUT] Edição de item por ID
 [DELETE] Exclusão de item por ID
 
-## Url_heroku = "https://?????????.herokuapp.com"
+###  Url_heroku = "https://?????????.herokuapp.com"
 
 ## **** Endpoints - Roupas ****
 
@@ -187,6 +187,6 @@ Todos os campos são obrigatórios:
 [DELETE] Exclusão de item por ID
 Url_heroku/acessorios/delete/id
 
-## Projeto configurado e conectado ao Mongo Atlas.
+### Projeto configurado e conectado ao Mongo Atlas.
 
-## Deploy do projeto no Heroku.
+### Deploy do projeto no Heroku.
