@@ -14,7 +14,7 @@ API com rotas e banco de dados distintos, através do VS Code.
 [PUT] Edição de item por ID
 [DELETE] Exclusão de item por ID
 
-###  Url_heroku = "https://?????????.herokuapp.com"
+###  Url_heroku = "https://lojasesportivas.herokuapp.com"
 
 ## **** Endpoints - Roupas ****
 
