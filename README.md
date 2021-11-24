@@ -27,25 +27,36 @@ Url_heroku/roupas/listid/id
 [POST] Cadastro
 Url_heroku/roupas/add
 
+
 Todos os campos são obrigatórios:
-{ "tipo": "String", 
+```
+
+{
+  "tipo": "String", 
   "genero": "String",
   "marca": "String", 
   "tamanho": "String",
   "cor": "String"
 }
+
+```
 
 [PUT] Edição de item por ID
 Url_heroku/roupas/update/id
 
+
 Todos os campos são obrigatórios:
-{ "tipo": "String", 
+```
+
+{ 
+  "tipo": "String", 
   "genero": "String",
   "marca": "String", 
   "tamanho": "String",
   "cor": "String"
 }
 
+```
 [DELETE] Exclusão de item por ID
 Url_heroku/roupas/delete/id
 
@@ -60,24 +71,35 @@ Url_heroku/calcados/listid/id
 [POST] Cadastro
 Url_heroku/calcados/add
 
+
 Todos os campos são obrigatórios:
-{ "tipo": "String", 
+```
+
+{
+  "tipo": "String", 
   "genero": "String",
   "marca": "String", 
   "tamanho": "String",
   "cor": "String"
 }
 
+```
 [PUT] Edição de item por ID
 Url_heroku/calcados/update/id
 
+
 Todos os campos são obrigatórios:
-{ "tipo": "String", 
+```
+
+{ 
+  "tipo": "String", 
   "genero": "String",
   "marca": "String", 
   "tamanho": "String",
   "cor": "String"
 }
+
+```
 
 [DELETE] Exclusão de item por ID
 Url_heroku/calcados/delete/id
@@ -93,8 +115,12 @@ Url_heroku/suplementos/listid/id
 [POST] Cadastro
 Url_heroku/suplementos/add
 
+
 Todos os campos são obrigatórios:
-{ "produto": "String", 
+```
+
+{ 
+  "produto": "String", 
   "marca": "String",
   "caracteristicas": "String", 
   "peso": "Number",
@@ -102,17 +128,24 @@ Todos os campos são obrigatórios:
   "valor": "Number"
 }
 
+```
 [PUT] Edição de item por ID
 Url_heroku/suplementos/update/id
 
+
 Todos os campos são obrigatórios:
-{ "produto": "String", 
+```
+
+{ 
+  "produto": "String", 
   "marca": "String",
   "caracteristicas": "String", 
   "peso": "Number",
   "volume": "Number",
   "valor": "Number"
 }
+
+```
 
 [DELETE] Exclusão de item por ID
 Url_heroku/suplementos/delete/id
@@ -128,26 +161,38 @@ Url_heroku/equipamentos/listid/id
 [POST] Cadastro
 Url_heroku/equipamentos/add
 
+
 Todos os campos são obrigatórios:
-{ "produto": "String", 
+```
+
+{ 
+  "produto": "String", 
   "marca": "String",
   "caracteristicas": "String", 
   "peso": "Number",
   "volume": "Number",
   "valor": "Number"
 }
+
+```
 
 [PUT] Edição de item por ID
 Url_heroku/equipamentos/update/id
 
+
 Todos os campos são obrigatórios:
-{ "produto": "String", 
+```
+
+{ 
+  "produto": "String", 
   "marca": "String",
   "caracteristicas": "String", 
   "peso": "Number",
   "volume": "Number",
   "valor": "Number"
 }
+
+```
 
 [DELETE] Exclusão de item por ID
 Url_heroku/equipamentos/delete/id
@@ -163,20 +208,30 @@ Url_heroku/acessorios/listid/id
 [POST] Cadastro
 Url_heroku/acessorios/add
 
+
 Todos os campos são obrigatórios:
-{ "produto": "String", 
+```
+
+{ 
+  "produto": "String", 
   "marca": "String",
   "caracteristicas": "String", 
   "peso": "Number",
   "volume": "Number",
   "valor": "Number"
 }
+
+```
 
 [PUT] Edição de item por ID
 Url_heroku/acessorios/update/id
 
+
 Todos os campos são obrigatórios:
-{ "produto": "String", 
+```
+
+{ 
+  "produto": "String", 
   "marca": "String",
   "caracteristicas": "String", 
   "peso": "Number",
@@ -184,9 +239,12 @@ Todos os campos são obrigatórios:
   "valor": "Number"
 }
 
-[DELETE] Exclusão de item por ID
-Url_heroku/acessorios/delete/id
+```
 
+[DELETE] Exclusão de item por ID
+```
+Url_heroku/acessorios/delete/id
+```
 ### Projeto configurado e conectado ao Mongo Atlas.
 
 ### Deploy do projeto no Heroku.
